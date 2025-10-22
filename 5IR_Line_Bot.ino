@@ -54,7 +54,7 @@ void loop() {
     analogWrite(left, lefts );
     analogWrite(right, rights);
   }
-  else{
+  else{ // Checks is line ends or not
     while (sum>1000){
       analogWrite(left, 180);
       analogWrite(right, 0);
