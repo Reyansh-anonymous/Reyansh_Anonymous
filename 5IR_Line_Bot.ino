@@ -35,6 +35,8 @@ void loop() {
     val = 0;
     s=0; // Go ahead, if entire surface is black
   }
+
+
   
 
   s = s+val; // to count accumulated error
@@ -43,16 +45,41 @@ void loop() {
   e1 = val; 
 
   float PID_val = 20*val + 0.05*s + 10*d; // PID calculation
-  lefts = 200+PID_val;
-  rights = 200-PID_val;
-  lefts = constrain(lefts, 0, 255);
-  rights = constrain(rights, 0, 255);
-  analogWrite(left, lefts );
-  analogWrite(right, rights);
+
+  if (sum<1000){
+    lefts = 200+PID_val;
+    rights = 200-PID_val;
+    lefts = constrain(lefts, 0, 255);
+    rights = constrain(rights, 0, 255);
+    analogWrite(left, lefts );
+    analogWrite(right, rights);
+  }
+  else{
+    while (sum>1000){
+      analogWrite(left, 180);
+      analogWrite(right, 0);
+  
+      // re-read sensors to see if line comes back
+      S1 = analogRead(A0);
+      S2 = analogRead(A1);
+      S3 = analogRead(A2);
+      S4 = analogRead(A3);
+      S5 = analogRead(A4);
+      sum = S1 + S2 + S3 + S4 + S5;
+      if (sum<1000){
+        break;
+
+      }
+    }
+
+  }
+  
   
   
 
 
   Serial.println(val);
+  delay(20);
+}
   delay(20);
 }
