@@ -7,6 +7,6 @@ I learnt about the Dijkstra( or something like that spelling) Algorithm for maze
 
 A* and UCS ( Uniform Cost search) Algorithms are similar to dijkstra. A* uses heurestics to find out the shortest path. UCS does not use heurestics, it directly uses path length. A* is effective if we find the right heurestic function for it. For maze solver, I have found out that it is the Manhattan Distance function. If heurestic function cannot be measured, UCS is more effective than dijkstra as it finds the length of the shortest path, whereas dijkstra finds ther lengths of all paths, then figures out the shortest one, rendering increased use of memory space and time.
 
-I took help { A lot:( } from chatgpt to understand and write a simple python code for UCS Alogrithm. It takes in a numpy array and gives out the path and cost for shortest path using UCS Algorithm.
+I took help { A lot:( } from chatgpt to understand and write a simple python code for UCS Alogrithm. It takes in a numpy array and gives out the path and cost for shortest path using UCS Algorithm. For finding the minimum cost path, I used(and learned) heapq library in python.
 
-
+I also created a pytohn code for A* algorithm, by adding 2-3 more line, for heurestic calculation using manhattan distance.
