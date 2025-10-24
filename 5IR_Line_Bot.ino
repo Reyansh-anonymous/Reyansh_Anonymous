@@ -7,7 +7,7 @@ const int left = 6;
 const int right = 5; // for motors - 6 and 5 are PWm pins.
 int lefts;
 int rights; // motor speeds
-float s;
+float s =0;
 float e1 = 0;
 
 void setup() {
@@ -44,7 +44,7 @@ void loop() {
   float d =  val- e1; // to find change in error
   e1 = val; 
 
-  float PID_val = 20*val + 0.05*s + 10*d; // PID calculation
+  float PID_val = 20*val + 0.05*s + 10*d; // PID calculation, the values 20, 0.05 and 10 are to be changed by watching the bot.
 
   if (sum<1000){
     lefts = 200+PID_val;
@@ -72,7 +72,7 @@ void loop() {
       }
     }
 
-  }
+  
   
   
   
